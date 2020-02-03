@@ -272,7 +272,7 @@ exports.createPages = async ({ graphql, actions }) => {
   context.sections.forEach(section => {
     const posts = getPosts(section.uri, context.posts)
     const postIds = posts ? posts.map(p => getPageId(p.uri)) : []
-    createPage({
+    const createPageOpts = {
       path: section.uri,
       component: path.resolve(`./src/templates/page/index.js`),
       context: {
@@ -289,6 +289,11 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: getPageId(section.uri),
         subPages: posts ? postIds : section.children || [],
       },
-    })
+    }
+    createPage(createPageOpts)
+    if (section.uri === 'projeto/') {
+      createPageOpts.path = '/';
+      createPage(createPageOpts)
+    }
   })
 }
