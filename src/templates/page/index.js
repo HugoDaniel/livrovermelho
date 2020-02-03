@@ -15,14 +15,16 @@ const hasTwoColumns = uri => {
 }
 const hasStats = uri => {
   const sectionPaths = uri.split("/")
-  return sectionPaths.length > 2 && sectionPaths[0] === "mamiferos"
+  const isStat = sectionPaths.length > 2 && sectionPaths[0] === "mamiferos"
+  console.log('IS STAT', isStat, sectionPaths);
+  return isStat;
 }
 
 const nodeProcessor = pageContext => nodes => {
   let processed = nodes
   if (pageContext.isPost) return twoColumns(processed)
   if (hasTwoColumns(pageContext.section.uri)) {
-    processed = twoColumns(processed)
+    processed = twoColumns(processed, hasStats(pageContext.section.uri))
   }
   if (hasStats(pageContext.section.uri)) {
     processed = specieStat(processed)
@@ -48,6 +50,7 @@ const Page = ({ pageContext, data }) => {
       setModal(true)
     }
   }
+  const withStats = hasStats(pageContext.section.uri)
   return (
     <Layout
       isPost={pageContext.isPost}
@@ -60,7 +63,7 @@ const Page = ({ pageContext, data }) => {
       }
     >
       <SEO title={section.title} />
-      <div onClick={showPhotoModal} className="ph5">
+      <div onClick={showPhotoModal} className={`Content ${withStats ? 'withStats' : ''}`}>
         {html}
       </div>
       {showModal ? <Modal onExit={e => setModal(false)} /> : null}

@@ -7029,9 +7029,9 @@ body {
 }
 
 .Stat p:nth-child(2) {
-  margin: 10px;
+  margin: 0 10px;
   color: #cc1013;
-  font-size: 100px;
+  font-size: 80px;
   font-weight: 700;
 }
 
@@ -7054,16 +7054,6 @@ p {
 
 .wp-block-columns > div:first-child {
   padding-right: 2rem;
-}
-.wp-block-columns > div:first-child::after {
-  content: " ";
-  margin: auto;
-  width: 2px;
-  height: 128px;
-  background-image: linear-gradient(#cc1013 33%, rgba(255, 255, 255, 0) 0%);
-  background-position: right;
-  background-size: 2px 19px;
-  background-repeat: repeat-y;
 }
 
 .Sidebar {
@@ -7201,4 +7191,18 @@ a:link {
 
 a.wp-block-button__link {
   color: white;
+}
+
+.Content {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+.Content.withStats {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.Content.withStats .TwoColumns {
+  padding-left: 4rem;
+  padding-right: 4rem;
 }

@@ -13,15 +13,15 @@ const stat = nodes => {
 }
 export const specieStat = nodes => {
   let done = false
-  const cx = " w-100 h5 bg-black flex justify-around white"
+  const cx = " Stats w-100 mv3 mv0-l h5-l bg-black flex justify-around-l justify-center items-center white pv3 flex-column flex-row-l"
   return nodes.map((n, i) => {
-    if (
-      !done &&
+    const processIt = !done &&
       n.type === "tag" &&
       n.attribs &&
       n.attribs.class === "wp-block-columns"
-    ) {
+    if (processIt) {
       n.attribs.class += cx
+      console.log('STATING CHILDREN', n.children);
       n.children = stat(n.children)
       done = true
     }
@@ -29,16 +29,15 @@ export const specieStat = nodes => {
   })
 }
 
-export const twoColumns = nodes => {
-  const cx = " w-100 flex justify-around pv2 flex-row-l flex-column"
+export const twoColumns = (nodes, hasStats) => {
+  const cx = " TwoColumns w-100 flex justify-around pv2 flex-row-l flex-column"
+  let isFirst = true;
   return nodes.map((n, i) => {
-    if (
-      n.type === "tag" &&
-      n.attribs &&
-      (n.attribs.class === "wp-block-columns alignfull" ||
-        n.attribs.class === "wp-block-columns")
-    ) {
-      n.attribs.class += cx
+    const hasTwoColumns = n.type === "tag" && n.attribs && (n.attribs.class === "wp-block-columns alignfull" || n.attribs.class === "wp-block-columns")
+    if (hasTwoColumns) {
+      if (hasStats && !isFirst) n.attribs.class += cx
+      else if(!hasStats && isFirst) n.attribs.class += cx
+      if (isFirst) isFirst = false;
     }
     return n
   })
