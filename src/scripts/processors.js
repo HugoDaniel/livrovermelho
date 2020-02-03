@@ -21,7 +21,6 @@ export const specieStat = nodes => {
       n.attribs.class === "wp-block-columns"
     if (processIt) {
       n.attribs.class += cx
-      console.log('STATING CHILDREN', n.children);
       n.children = stat(n.children)
       done = true
     }

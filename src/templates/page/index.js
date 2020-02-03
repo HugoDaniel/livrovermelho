@@ -16,7 +16,6 @@ const hasTwoColumns = uri => {
 const hasStats = uri => {
   const sectionPaths = uri.split("/")
   const isStat = sectionPaths.length > 2 && sectionPaths[0] === "mamiferos"
-  console.log('IS STAT', isStat, sectionPaths);
   return isStat;
 }
 
