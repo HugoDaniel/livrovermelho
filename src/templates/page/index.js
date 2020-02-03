@@ -48,7 +48,6 @@ const Page = ({ pageContext, data }) => {
       setModal(true)
     }
   }
-  console.log("PAGE DATA", data, pageContext)
   return (
     <Layout
       isPost={pageContext.isPost}

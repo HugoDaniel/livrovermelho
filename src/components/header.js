@@ -31,7 +31,7 @@ const Header = ({ headline, menu, featuredImg, showTitle, siteTitle }) => {
           <Logo />
         </Link>
         <div className="mr5">
-          {menu.map(({ url, id, label }) => (
+          {menu ? menu.map(({ url, id, label }) => (
             <Link
               key={id}
               to={`/${url.split("/")[3]}`}
@@ -39,7 +39,7 @@ const Header = ({ headline, menu, featuredImg, showTitle, siteTitle }) => {
             >
               {label}
             </Link>
-          ))}
+          )) : null}
         </div>
       </nav>
       <Hero
