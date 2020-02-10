@@ -24,7 +24,6 @@ const Header = ({ headline, menu, featuredImg, showTitle, siteTitle, imageTitle 
   } catch (e) {
     selectedId = ""
   }
-  console.log(imageTitle);
   return (
     <header className="">
       <nav className="bg-white w-100 h3 flex justify-between items-center sticky top-0 z-2">
