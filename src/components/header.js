@@ -8,7 +8,7 @@ const classStr =
   "hover-bg-vermelho ttu ph2 black hover-white pv3half no-underline"
 const classSelected = classStr + " bg-vermelho white"
 
-const Header = ({ headline, menu, featuredImg, showTitle, siteTitle }) => {
+const Header = ({ headline, menu, featuredImg, showTitle, siteTitle, imageTitle }) => {
   let curSlug = ""
   let selectedId
   try {
@@ -24,6 +24,7 @@ const Header = ({ headline, menu, featuredImg, showTitle, siteTitle }) => {
   } catch (e) {
     selectedId = ""
   }
+  console.log(imageTitle);
   return (
     <header className="">
       <nav className="bg-white w-100 h3 flex justify-between items-center sticky top-0 z-2">
@@ -50,6 +51,7 @@ const Header = ({ headline, menu, featuredImg, showTitle, siteTitle }) => {
             ? featuredImg.childImageSharp.fluid
             : undefined
         }
+        title={ imageTitle }
       />
       <div className="tc white bg-vermelho br4 ph4 pv3 f6 pill z-1">
         {headline}

@@ -55,6 +55,7 @@ const Page = ({ pageContext, data }) => {
       isPost={pageContext.isPost}
       siteTitle={pageContext.section.title}
       menu={menu}
+      imageTitle={pageContext.section.imageTitle}
       featuredImg={
         data && data.sitePage && data.sitePage.featuredImg
           ? data.sitePage.featuredImg
@@ -94,6 +95,7 @@ export const query = graphql`
       nodes {
         context {
           section {
+            imageTitle
             title
             uri
           }
