@@ -27,10 +27,10 @@ const Header = ({ headline, menu, featuredImg, showTitle, siteTitle, imageTitle 
   return (
     <header className="">
       <nav className="bg-white w-100 h3 flex justify-between items-center sticky top-0 z-2">
-        <Link to="/" className="ml5 mt5">
+        <Link to="/" className="ml5-l mt5-l ml0 mt5">
           <Logo />
         </Link>
-        <div className="mr5">
+        <div className="mr5 dn db-ns">
           {menu ? menu.map(({ url, id, label }) => (
             <Link
               key={id}
@@ -52,7 +52,7 @@ const Header = ({ headline, menu, featuredImg, showTitle, siteTitle, imageTitle 
         }
         title={ imageTitle }
       />
-      <div className="tc white bg-vermelho br4 ph4 pv3 f6 pill z-1">
+      <div className="flex items-center justify-center tc white bg-vermelho br-100 w4 h4 ph3 pv3 w-100-l h-100-l br4-l ph4-l pv3-l f6-l f7 pill z-1">
         {headline}
       </div>
       <VerticalLine />

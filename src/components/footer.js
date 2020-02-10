@@ -99,7 +99,7 @@ const Footer = () => {
           </div>
         ) : null}
       </div>
-      <footer className="flex flex-row-l flex-column h4-l bt b--vermelho justify-around pt2 items-center">
+      <footer className="flex flex-row flex-wrap h4-l bt b--vermelho justify-around pt2 items-center">
         <Card
           image={data.beneficiario.childImageSharp.fixed}
           alt=""

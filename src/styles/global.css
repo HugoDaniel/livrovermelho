@@ -6941,6 +6941,11 @@ code {
   .v-btm-l {
     vertical-align: bottom;
   }
+  .pill-l {
+    max-width: 26rem;
+    margin: auto;
+    margin-top: -24px;
+  }
 }
 
 .sticky {
@@ -7193,10 +7198,7 @@ a.wp-block-button__link {
   color: white;
 }
 
-.Content {
-  padding-left: 4rem;
-  padding-right: 4rem;
-}
+.Content { }
 .Content.withStats {
   padding-left: 0;
   padding-right: 0;
