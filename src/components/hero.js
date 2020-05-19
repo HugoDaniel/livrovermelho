@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-const Hero = ({ fluid, title }) => {
+const Hero = ({ fluid }) => {
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "fundo.png" }) {
@@ -16,14 +16,10 @@ const Hero = ({ fluid, title }) => {
   `)
 
   return (
-    <div>
     <Img
       style={{ zIndex: -1 }}
       fluid={fluid ? fluid : data.placeholderImage.childImageSharp.fluid}
-      title={title}
     />
-    <p className="white bg-black f7 absolute" style={{ marginTop: "-2rem" }}>{title}</p>
-    </div>
   )
 }
 

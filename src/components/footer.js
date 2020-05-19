@@ -75,7 +75,7 @@ const Footer = () => {
   `)
 
   return (
-    <div className="flex flex-column w-100 justify-center">
+    <div>
       <div className="Newsletter w-100 h4 pa3 mb3">
         <h3 className="w-100 tc">
           {subscribed
@@ -99,7 +99,7 @@ const Footer = () => {
           </div>
         ) : null}
       </div>
-      <footer className="flex flex-row flex-wrap h4-l bt b--vermelho justify-around pt2 items-center">
+      <footer className="flex h4 bt b--vermelho justify-around pt2">
         <Card
           image={data.beneficiario.childImageSharp.fixed}
           alt=""

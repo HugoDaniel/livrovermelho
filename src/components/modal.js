@@ -28,6 +28,7 @@ const uploadToDropbox2 = (rndName, file, index, onDone, onLoading) => {
   try {
     const path =
       "/Envios/" + rndName + "_" + index + "." + file.name.split(".").pop()
+    console.log("SETNDIN TO PATH", path)
     const dropboxToken =
       "UUYBbevnFNAAAAAAAAAAVFrjCBlq-c-tU8FgTy6ALq2S84kJ8DwtcnuQBN0IR_FJ"
     xhr.open("POST", "https://content.dropboxapi.com/2/files/upload")
