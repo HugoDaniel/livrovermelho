@@ -6988,10 +6988,12 @@ code {
 body {
   font-family: CircularStd;
   font-weight: 400;
+  background: blue;
 }
 
 .SectionHeader {
   margin-bottom: 1rem;
+  margin-top: 3rem;
 }
 
 .SectionHeader h2,
