@@ -15,7 +15,7 @@ const Hero = ({ fluid, title }) => {
     }
   `)
 
-  const t = title[0] === '<' ? title.slice(3, title.lastIndexOf('<')) : title;
+  const t = title && title.length > 0 && title[0] === '<' ? title.slice(3, title.lastIndexOf('<')) : title;
   return (
     <div>
     <Img
