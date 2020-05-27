@@ -1,4 +1,6 @@
 import { Link } from "gatsby"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import '../utils/fontawesome'
 import React from "react"
 import Logo from "./logo.js"
 import Hero from "./hero.js"
@@ -31,6 +33,7 @@ const Header = ({ headline, menu, featuredImg, showTitle, siteTitle }) => {
           <Logo />
         </Link>
         <div className="mr5">
+          <FontAwesomeIcon icon={'coffee'} />
           {menu && menu.length > 0
             ? menu.map(({ url, id, label }) => (
                 <Link

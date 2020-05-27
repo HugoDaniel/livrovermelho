@@ -67,6 +67,10 @@ const createPosts = ({ posts: { nodes } }) => {
       featuredImage && featuredImage.mediaDetails
         ? featuredImage.mediaDetails.height
         : undefined,
+    imageTitle: 
+      featuredImage && featuredImage.caption
+        ? featuredImage.caption
+        : undefined,
   })
   return nodes.map(nodeToPost)
 }
@@ -100,6 +104,10 @@ const createSections = ({ pages: { nodes } }) => {
     imageHeight:
       featuredImage && featuredImage.mediaDetails
         ? featuredImage.mediaDetails.height
+        : undefined,
+    imageTitle: 
+      featuredImage && featuredImage.caption
+        ? featuredImage.caption
         : undefined,
   })
   let mainSections = nodes.map(nodeToSection)
@@ -165,6 +173,7 @@ exports.createPages = async ({ graphql, actions }) => {
             excerpt
             uri
             featuredImage {
+              caption
               slug
               uri
               mediaItemUrl
@@ -206,6 +215,7 @@ exports.createPages = async ({ graphql, actions }) => {
             id
             isFrontPage
             featuredImage {
+              caption
               mediaItemUrl
               mediaDetails {
                 height
@@ -227,6 +237,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 featuredImage {
                   uri
                   slug
+                  caption
                   mediaItemUrl
                   mediaDetails {
                     height
@@ -261,6 +272,7 @@ exports.createPages = async ({ graphql, actions }) => {
         section: post,
         width: post.imageWidth,
         height: post.imageHeight,
+        imageTitle: post.imageTitle,
         slug: getPageId(post.uri),
         subPages: [],
       },
@@ -286,6 +298,7 @@ exports.createPages = async ({ graphql, actions }) => {
         posts,
         width: section.imageWidth,
         height: section.imageHeight,
+        imageTitle: section.imageTitle,
         slug: getPageId(section.uri),
         subPages: posts ? postIds : section.children || [],
       },

@@ -25,8 +25,10 @@ const nodeProcessor = pageContext => nodes => {
     processed = twoColumns(processed)
   }
   if (hasStats(pageContext.section.uri)) {
+    console.log('HAS STATS');
     processed = specieStat(processed)
   } else {
+    console.log('NO STATS');
     processed = contentTitle(processed)
   }
   return processed
@@ -39,6 +41,7 @@ const Page = ({ pageContext, data }) => {
   const html = ReactHtmlParser(section.content, {
     preprocessNodes: nodeProcessor(pageContext),
   })
+  console.log('PAGE CONTEXT', pageContext)
   const showPhotoModal = e => {
     if (
       e.target.classList.contains("wp-block-button__link") &&
@@ -48,7 +51,6 @@ const Page = ({ pageContext, data }) => {
       setModal(true)
     }
   }
-  console.log("PAGE DATA", data, pageContext)
   return (
     <Layout
       isPost={pageContext.isPost}
@@ -94,6 +96,7 @@ export const query = graphql`
         context {
           section {
             title
+            imageTitle
             uri
           }
         }

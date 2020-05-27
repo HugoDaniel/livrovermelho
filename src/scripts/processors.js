@@ -4,7 +4,8 @@ const stat = nodes => {
     if (
       n.type === "tag" &&
       n.attribs &&
-      n.attribs.class === "wp-block-column"
+      n.attribs.class &&
+      n.attribs.class.split(' ').includes("wp-block-column")
     ) {
       n.attribs.class += cx
     }
@@ -19,12 +20,16 @@ export const specieStat = nodes => {
       !done &&
       n.type === "tag" &&
       n.attribs &&
-      n.attribs.class === "wp-block-columns"
+      n.attribs.class &&
+      n.attribs.class.split(' ').includes("wp-block-columns")
     ) {
+      console.log('CHANGING NODE', n);
       n.attribs.class += cx
       n.children = stat(n.children)
       done = true
-    }
+    } else {
+      console.log('NO NODE', n);
+      }
     return n
   })
 }
