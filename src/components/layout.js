@@ -9,6 +9,7 @@ const Layout = ({
   className,
   menu,
   featuredImg,
+  imageTitle,
   isPost,
   children,
   siteTitle,
@@ -21,6 +22,7 @@ const Layout = ({
         menu={menu}
         featuredImg={featuredImg}
         showTitle={isPost}
+        imageTitle={imageTitle}
       />
       <div>
         <main className={className}>{children}</main>

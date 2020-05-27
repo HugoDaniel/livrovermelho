@@ -58,6 +58,7 @@ const createPosts = ({ posts: { nodes } }) => {
     modifiedGmt,
     content,
     categories: getCategories(categories),
+    imageTitle: featuredImage ? (featuredImage.caption || featuredImage.title || '') : undefined,
     imageUrl: featuredImage ? featuredImage.mediaItemUrl : undefined,
     imageWidth:
       featuredImage && featuredImage.mediaDetails
@@ -66,10 +67,6 @@ const createPosts = ({ posts: { nodes } }) => {
     imageHeight:
       featuredImage && featuredImage.mediaDetails
         ? featuredImage.mediaDetails.height
-        : undefined,
-    imageTitle: 
-      featuredImage && featuredImage.caption
-        ? featuredImage.caption
         : undefined,
   })
   return nodes.map(nodeToPost)
@@ -96,6 +93,7 @@ const createSections = ({ pages: { nodes } }) => {
       childPages && childPages.nodes
         ? childPages.nodes.map(child => getPageId(child.uri))
         : undefined,
+    imageTitle: featuredImage ? (featuredImage.caption || featuredImage.title) : undefined,
     imageUrl: featuredImage ? featuredImage.mediaItemUrl : undefined,
     imageWidth:
       featuredImage && featuredImage.mediaDetails
@@ -104,10 +102,6 @@ const createSections = ({ pages: { nodes } }) => {
     imageHeight:
       featuredImage && featuredImage.mediaDetails
         ? featuredImage.mediaDetails.height
-        : undefined,
-    imageTitle: 
-      featuredImage && featuredImage.caption
-        ? featuredImage.caption
         : undefined,
   })
   let mainSections = nodes.map(nodeToSection)
@@ -173,6 +167,7 @@ exports.createPages = async ({ graphql, actions }) => {
             excerpt
             uri
             featuredImage {
+              title
               caption
               slug
               uri
@@ -215,6 +210,7 @@ exports.createPages = async ({ graphql, actions }) => {
             id
             isFrontPage
             featuredImage {
+              title
               caption
               mediaItemUrl
               mediaDetails {
@@ -235,9 +231,9 @@ exports.createPages = async ({ graphql, actions }) => {
                 content
                 slug
                 featuredImage {
+                  title
                   uri
                   slug
-                  caption
                   mediaItemUrl
                   mediaDetails {
                     height
@@ -284,7 +280,7 @@ exports.createPages = async ({ graphql, actions }) => {
   context.sections.forEach(section => {
     const posts = getPosts(section.uri, context.posts)
     const postIds = posts ? posts.map(p => getPageId(p.uri)) : []
-    createPage({
+    const createPageOpts = {
       path: section.uri,
       component: path.resolve(`./src/templates/page/index.js`),
       context: {
@@ -302,6 +298,11 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: getPageId(section.uri),
         subPages: posts ? postIds : section.children || [],
       },
-    })
+    }
+    createPage(createPageOpts)
+    if (section.uri === 'projeto/') {
+      createPageOpts.path = '/';
+      createPage(createPageOpts)
+    }
   })
 }

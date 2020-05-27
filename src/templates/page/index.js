@@ -15,20 +15,19 @@ const hasTwoColumns = uri => {
 }
 const hasStats = uri => {
   const sectionPaths = uri.split("/")
-  return sectionPaths.length > 2 && sectionPaths[0] === "mamiferos"
+  const isStat = sectionPaths.length > 2 && sectionPaths[0] === "mamiferos"
+  return isStat;
 }
 
 const nodeProcessor = pageContext => nodes => {
   let processed = nodes
   if (pageContext.isPost) return twoColumns(processed)
   if (hasTwoColumns(pageContext.section.uri)) {
-    processed = twoColumns(processed)
+    processed = twoColumns(processed, hasStats(pageContext.section.uri))
   }
   if (hasStats(pageContext.section.uri)) {
-    console.log('HAS STATS');
     processed = specieStat(processed)
   } else {
-    console.log('NO STATS');
     processed = contentTitle(processed)
   }
   return processed
@@ -41,7 +40,6 @@ const Page = ({ pageContext, data }) => {
   const html = ReactHtmlParser(section.content, {
     preprocessNodes: nodeProcessor(pageContext),
   })
-  console.log('PAGE CONTEXT', pageContext)
   const showPhotoModal = e => {
     if (
       e.target.classList.contains("wp-block-button__link") &&
@@ -51,11 +49,13 @@ const Page = ({ pageContext, data }) => {
       setModal(true)
     }
   }
+  const withStats = hasStats(pageContext.section.uri)
   return (
     <Layout
       isPost={pageContext.isPost}
       siteTitle={pageContext.section.title}
       menu={menu}
+      imageTitle={pageContext.section.imageTitle}
       featuredImg={
         data && data.sitePage && data.sitePage.featuredImg
           ? data.sitePage.featuredImg
@@ -63,7 +63,7 @@ const Page = ({ pageContext, data }) => {
       }
     >
       <SEO title={section.title} />
-      <div onClick={showPhotoModal} className="ph5">
+      <div onClick={showPhotoModal} className={`Content pa0 ph6-l ${withStats ? 'withStats' : ''}`}>
         {html}
       </div>
       {showModal ? <Modal onExit={e => setModal(false)} /> : null}
@@ -95,8 +95,8 @@ export const query = graphql`
       nodes {
         context {
           section {
-            title
             imageTitle
+            title
             uri
           }
         }

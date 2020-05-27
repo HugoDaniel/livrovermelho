@@ -4,8 +4,7 @@ const stat = nodes => {
     if (
       n.type === "tag" &&
       n.attribs &&
-      n.attribs.class &&
-      n.attribs.class.split(' ').includes("wp-block-column")
+      n.attribs.class === "wp-block-column"
     ) {
       n.attribs.class += cx
     }
@@ -14,36 +13,30 @@ const stat = nodes => {
 }
 export const specieStat = nodes => {
   let done = false
-  const cx = " w-100 h5 bg-black flex justify-around white"
+  const cx = " Stats w-100 mv3 mv0-l h5-l bg-black flex justify-around-l justify-center items-center white pv3 flex-column flex-row-l"
   return nodes.map((n, i) => {
-    if (
-      !done &&
+    const processIt = !done &&
       n.type === "tag" &&
       n.attribs &&
-      n.attribs.class &&
-      n.attribs.class.split(' ').includes("wp-block-columns")
-    ) {
-      console.log('CHANGING NODE', n);
+      n.attribs.class === "wp-block-columns"
+    if (processIt) {
       n.attribs.class += cx
       n.children = stat(n.children)
       done = true
-    } else {
-      console.log('NO NODE', n);
-      }
+    }
     return n
   })
 }
 
-export const twoColumns = nodes => {
-  const cx = " w-100 flex justify-around pv2 flex-row-l flex-column"
+export const twoColumns = (nodes, hasStats) => {
+  const cx = " TwoColumns w-100 flex justify-around pv2 flex-row-l flex-column"
+  let isFirst = true;
   return nodes.map((n, i) => {
-    if (
-      n.type === "tag" &&
-      n.attribs &&
-      (n.attribs.class === "wp-block-columns alignfull" ||
-        n.attribs.class === "wp-block-columns")
-    ) {
-      n.attribs.class += cx
+    const hasTwoColumns = n.type === "tag" && n.attribs && (n.attribs.class === "wp-block-columns alignfull" || n.attribs.class === "wp-block-columns")
+    if (hasTwoColumns) {
+      if (hasStats && !isFirst) n.attribs.class += cx
+      else if(!hasStats && isFirst) n.attribs.class += cx
+      if (isFirst) isFirst = false;
     }
     return n
   })
@@ -51,7 +44,7 @@ export const twoColumns = nodes => {
 
 export const contentTitle = nodes => {
   const h2cx = " mt0 w-100 tc ttu f2"
-  const pcx = " mb1 f5 tc w6 center"
+  const pcx = " mb1 f6 f5-l tc w6-ns w5 center"
   return nodes.map((n, i) => {
     if (n.type === "tag") {
       switch (n.name) {

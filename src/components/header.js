@@ -1,6 +1,4 @@
 import { Link } from "gatsby"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import '../utils/fontawesome'
 import React from "react"
 import Logo from "./logo.js"
 import Hero from "./hero.js"
@@ -10,7 +8,7 @@ const classStr =
   "hover-bg-vermelho ttu ph2 black hover-white pv3half no-underline"
 const classSelected = classStr + " bg-vermelho white"
 
-const Header = ({ headline, menu, featuredImg, showTitle, siteTitle }) => {
+const Header = ({ headline, menu, featuredImg, showTitle, siteTitle, imageTitle }) => {
   let curSlug = ""
   let selectedId
   try {
@@ -29,22 +27,19 @@ const Header = ({ headline, menu, featuredImg, showTitle, siteTitle }) => {
   return (
     <header className="">
       <nav className="bg-white w-100 h3 flex justify-between items-center sticky top-0 z-2">
-        <Link to="/" className="ml5 mt5 relative" style={{ top: 6 }}>
+        <Link to="/" className="ml5-l mt5-l ml0 mt5 relative" style={{ top: 6 }}>
           <Logo />
         </Link>
-        <div className="mr5">
-          <FontAwesomeIcon icon={'coffee'} />
-          {menu && menu.length > 0
-            ? menu.map(({ url, id, label }) => (
-                <Link
-                  key={id}
-                  to={`/${url.split("/")[3]}`}
-                  className={id === selectedId ? classSelected : classStr}
-                >
-                  {label}
-                </Link>
-              ))
-            : null}
+        <div className="mr5 dn db-ns">
+          {menu ? menu.map(({ url, id, label }) => (
+            <Link
+              key={id}
+              to={`/${url.split("/")[3]}`}
+              className={id === selectedId ? classSelected : classStr}
+            >
+              {label}
+            </Link>
+          )) : null}
         </div>
       </nav>
       <Hero
@@ -55,8 +50,9 @@ const Header = ({ headline, menu, featuredImg, showTitle, siteTitle }) => {
             ? featuredImg.childImageSharp.fluid
             : undefined
         }
+        title={ imageTitle }
       />
-      <div className="tc white bg-vermelho br4 ph4 pv3 f6 pill z-1">
+      <div className="flex items-center justify-center tc white bg-vermelho br-100 w4 h4 ph3 pv3 w-100-l h-100-l br4-l ph4-l pv3-l f6-l f7 pill z-1">
         {headline}
       </div>
       <VerticalLine />
