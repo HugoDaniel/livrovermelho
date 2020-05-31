@@ -1,14 +1,23 @@
 import { Link } from "gatsby"
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Logo from "./logo.js"
 import Hero from "./hero.js"
 import VerticalLine from "./line.js"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 const classStr =
   "hover-bg-vermelho ttu ph2 black hover-white pv3half no-underline"
 const classSelected = classStr + " bg-vermelho white"
 
+const hamburgerClassStr=
+  "hover-bg-vermelho ttu ph5 black hover-white pv3half no-underline db"
+
 const Header = ({ headline, menu, featuredImg, showTitle, siteTitle, imageTitle }) => {
+  const [isMenuOpen, setMenu] = useState(true)
+  useEffect(() => {
+    setMenu(false)
+  }, []);
   let curSlug = ""
   let selectedId
   try {
@@ -30,7 +39,7 @@ const Header = ({ headline, menu, featuredImg, showTitle, siteTitle, imageTitle 
         <Link to="/" className="ml5-l mt5-l ml0 mt5 relative" style={{ top: 6 }}>
           <Logo />
         </Link>
-        <div className="mr5 dn db-ns">
+        <div className="mr5 dn db-l">
           {menu ? menu.map(({ url, id, label }) => (
             <Link
               key={id}
@@ -40,6 +49,26 @@ const Header = ({ headline, menu, featuredImg, showTitle, siteTitle, imageTitle 
               {label}
             </Link>
           )) : null}
+        </div>
+        <div className="pointer pa2 w2 dn-l db mr3"
+          onClick={() => setMenu(!isMenuOpen)}
+        >
+          <FontAwesomeIcon icon={ isMenuOpen ? faTimes : faBars} />
+          { isMenuOpen ?
+            <div className="fixed top3 bg-white db"
+            style={{ right: "0rem", top: "4rem" }} >
+              {menu ? menu.map(({ url, id, label }) => (
+                <Link
+                  key={id}
+                  to={`/${url.split("/")[3]}`}
+                  className={hamburgerClassStr}
+                >
+                  {label}
+                </Link>
+              )) : null}
+            </div>
+          : null
+          }
         </div>
       </nav>
       <Hero
