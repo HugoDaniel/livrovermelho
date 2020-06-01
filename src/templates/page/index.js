@@ -102,7 +102,7 @@ export const query = graphql`
         }
         featuredImg {
           childImageSharp {
-            fluid(maxWidth: $width, maxHeight: $height) {
+            fluid(maxWidth: $width, maxHeight: $height, cropFocus: NORTH) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }
