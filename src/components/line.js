@@ -1,6 +1,6 @@
 import React from "react"
 
-const VerticalLine = ({ length = 128, color = '#CC1013' }) => {
+const VerticalLine = ({ length = 56, color = '#CC1013' }) => {
   return <div style={{
     margin: 'auto',
     width: 2,

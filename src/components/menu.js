@@ -52,9 +52,9 @@ const MenuItem = ({ image, label }) => {
         fluid={image.childImageSharp.fluid}
         className=""
       />
-      <div className="bg-vermelho absolute br2 right-0 pr4 mt--200 static-ns pa0-ns ma0-ns br0-ns ph2-ns pv1-ns">
+      <div className="flex flex-column justify-between bg-vermelho absolute br2 right-0 pr4 mt--200 static-ns pa0-ns ma0-ns br0-ns ph2-ns pv1-ns" style={{ minHeight: 121 }}>
         <p className="white f4-ns f6 b ma0 ml4 mt3-ns mv2 ma0-ns">{label}</p>
-        <p className="white dn db-ns f7 ml4 mv3 f6-ns ma0-ns mv2-ns">Saiba mais</p>
+        <p className="white dn db-ns f7 ml4 mv3 f6-ns ma0-ns mv2-ns ">Saiba mais</p>
       </div>
     </div>
   )

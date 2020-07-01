@@ -63,7 +63,7 @@ const Page = ({ pageContext, data }) => {
       }
     >
       <SEO title={section.title} />
-      <div onClick={showPhotoModal} className={`Content pa4 ph6-l ${withStats ? 'withStats' : ''}`}>
+      <div onClick={showPhotoModal} className={`Content pt0 dark-gray lh-copy measure-m mw8 center pa4 ph6-l ${withStats ? 'withStats' : ''}`}>
         {html}
       </div>
       {showModal ? <Modal onExit={e => setModal(false)} /> : null}

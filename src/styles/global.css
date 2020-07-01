@@ -242,6 +242,9 @@ input.upload {
   font-size: 0.85rem;
 }
 
+header nav a {
+  color: black;
+}
 a:link {
   text-decoration: none;
   color: #cc1013;
