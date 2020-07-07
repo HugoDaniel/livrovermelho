@@ -5,7 +5,7 @@ const getPageId = uri => `SitePage /${uri}`
 const getPosts = (uri, posts) => {
   switch (uri.toLowerCase()) {
     case "novidades/":
-      return posts
+      return posts.filter(p => p.categories.includes("Novidades"))
     case "pistas/":
       return posts.filter(p => p.categories.includes("Pistas"))
     default:

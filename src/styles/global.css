@@ -269,3 +269,21 @@ a.wp-block-button__link {
   padding-left: 4rem;
   padding-right: 4rem;
 }
+
+.accordion.accordion-open + p + div,
+.accordion.accordion-open + div {
+  display: block;
+}
+.accordion + p + div,
+.accordion + div {
+  display: none;
+}
+.accordion {
+  cursor: pointer;
+}
+.accordion::after {
+  content: " +";
+}
+.accordion.accordion-open::after {
+  content: " -";
+}
