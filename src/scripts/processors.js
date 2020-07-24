@@ -44,7 +44,7 @@ export const twoColumns = (nodes, hasStats) => {
 
 export const contentTitle = nodes => {
   const h2cx = " mt0 w-100 tc ttu f2"
-  const pcx = " mb1 f6 f5-l tc w6-ns w6 center"
+  const pcx = " mb1 f6 f5-l tc w6-ns w5 center"
   return nodes.map((n, i) => {
     if (n.type === "tag") {
       switch (n.name) {

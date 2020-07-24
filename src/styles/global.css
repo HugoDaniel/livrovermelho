@@ -308,4 +308,12 @@ a.wp-block-button__link {
   filter: grayscale(0%);
   opacity: 1;
 }
+.QuadradoTitulo {
+  margin-top: -3.5rem;
+}
 
+@media screen and (min-width: 30em) {
+  .QuadradoTitulo {
+    margin-top: 0rem;
+  }
+}
