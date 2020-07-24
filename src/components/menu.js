@@ -28,7 +28,7 @@ const Menu = ({ allSitePage, sectionMenu }) => {
 
   return (
     <div
-      className="SectionsList db mt5 w-100 flex-wrap-l items-start-l justify-center-l flex-l"
+      className="SectionsList db mt3 w-100 flex-wrap-l items-start-l justify-center-l flex-l"
       style={{ flexBasis: "33%" }}
     >
       {menu.map(({ label, uri }, i) => {

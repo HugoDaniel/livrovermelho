@@ -287,3 +287,25 @@ a.wp-block-button__link {
 .accordion.accordion-open::after {
   content: " -";
 }
+
+.tabela-loading {
+  filter: grayscale(95%) blur(1px);
+}
+
+.tabela-menu {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  align-content: stretch;
+}
+
+.tabela-menu a img {
+  filter: grayscale(70%);
+  opacity: 0.8;
+}
+
+.tabela-menu a.selected img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+

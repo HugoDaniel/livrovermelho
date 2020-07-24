@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import Envio from './envio'
+import Tabela from './tabela'
 
 import Header from "./header"
 import Footer from "./footer"
@@ -49,6 +50,7 @@ const Layout = ({
 
         <main className={className}>
           {children}
+    { window.location.pathname.includes("quando-e-que-tudo-vai-acontecer") ? <Tabela className="Tabela wp-block-group pt0 dark-gray lh-copy measure-m mw8 center pa4 ph6-l" /> : null }
         </main>
       { displayForm ?
       <div className="flex w-100 items-center justify-center">
