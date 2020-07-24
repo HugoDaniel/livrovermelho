@@ -18,6 +18,10 @@ const hasStats = uri => {
   const isStat = sectionPaths.length > 2 && sectionPaths[0] === "mamiferos"
   return isStat;
 }
+const hasTable = uri => {
+  return uri.includes("quando-e-que-tudo-vai-acontecer")
+}
+
 
 const nodeProcessor = pageContext => nodes => {
   let processed = nodes
@@ -50,9 +54,11 @@ const Page = ({ pageContext, data }) => {
     }
   }
   const withStats = hasStats(pageContext.section.uri)
+  const withTable = hasTable(pageContext.section.uri)
   return (
     <Layout
       isPost={pageContext.isPost}
+      hasTable={withTable}
       siteTitle={pageContext.section.title}
       menu={menu}
       imageTitle={pageContext.section.imageTitle}

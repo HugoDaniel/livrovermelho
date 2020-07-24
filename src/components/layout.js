@@ -17,6 +17,7 @@ const Layout = ({
   featuredImg,
   imageTitle,
   isPost,
+  hasTable,
   children,
   siteTitle,
 }) => {
@@ -50,7 +51,7 @@ const Layout = ({
 
         <main className={`${className} ${isPost ? 'isPost' : '' }`}>
           {children}
-    { window.location.pathname.includes("quando-e-que-tudo-vai-acontecer") ? <Tabela className="Tabela wp-block-group pt0 dark-gray lh-copy measure-m mw8 center pa4 ph6-l" /> : null }
+    { hasTable ? <Tabela className="Tabela wp-block-group pt0 dark-gray lh-copy measure-m mw8 center pa4 ph6-l" /> : null }
       { isPost ?
       <div className="social flex items-center justify-center">
         <a href="https://www.facebook.com/Livro-Vermelho-dos-Mam%C3%ADferos-de-Portugal-Continental-101873134715572/" target="_blank">
