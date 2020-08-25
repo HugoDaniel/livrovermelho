@@ -161,7 +161,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(`
     query {
       wpgraphql {
-        posts {
+        posts(first: 1000) {
           nodes {
             title
             excerpt
