@@ -27,7 +27,7 @@ exports.onCreateNode = async ({
     node.context.section.imageUrl
   ) {
     let fileNode = await createRemoteFileNode({
-      url: node.context.section.imageUrl, // string that points to the URL of the image
+      url: encodeURI(node.context.section.imageUrl), // string that points to the URL of the image
       parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
       createNode, // helper function in gatsby-node to generate the node
       createNodeId, // helper function in gatsby-node to generate the node id
