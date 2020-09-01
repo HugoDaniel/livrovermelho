@@ -270,6 +270,7 @@ a.wp-block-button__link {
   padding-right: 4rem;
 }
 
+/*
 .accordion.accordion-open + p + div,
 .accordion.accordion-open + div {
   display: block;
@@ -287,6 +288,7 @@ a.wp-block-button__link {
 .accordion.accordion-open::after {
   content: " -";
 }
+*/
 
 .tabela-loading {
   filter: grayscale(95%) blur(1px);

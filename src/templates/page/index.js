@@ -8,6 +8,9 @@ import SEO from "../../components/seo"
 import ImagesMenu from "../../components/menu"
 import Modal from "../../components/modal"
 
+
+const isHomePage = uri => console.log(uri)
+
 const hasTwoColumns = uri => {
   const sectionPaths = uri.split("/")
   const pathIs = p => sectionPaths[0] === p
@@ -55,6 +58,7 @@ const Page = ({ pageContext, data }) => {
   }
   const withStats = hasStats(pageContext.section.uri)
   const withTable = hasTable(pageContext.section.uri)
+  const inHomePage = pageContext.section.uri === "projeto/"
   return (
     <Layout
       isPost={pageContext.isPost}
@@ -73,6 +77,10 @@ const Page = ({ pageContext, data }) => {
         {html}
       </div>
       {showModal ? <Modal onExit={e => setModal(false)} /> : null}
+      {inHomePage ? 
+      <div style={ { textAlign: "center"} }>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Z2jbkjjf9Sw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen={true}></iframe>
+      </div> : null }
       <ImagesMenu
         allSitePage={data.allSitePage}
         sectionMenu={pageContext.sectionMenu}
