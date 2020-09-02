@@ -46,7 +46,8 @@ module.exports = {
         typeName: "WPGraphQL",
         fieldName: "wpgraphql",
         url:
-          "https://www.livrovermelhodosmamiferos.pt/wordpress/index.php?graphql",
+        "https://admin.livrovermelhodosmamiferos.pt/index.php?graphql",
+        //  "https://www.livrovermelhodosmamiferos.pt/wordpress/index.php?graphql",
         // "http://livrovermelho.local/index.php?graphql",
       },
     },
