@@ -1,5 +1,6 @@
 const path = require(`path`)
 const { createRemoteFileNode } = require("gatsby-source-filesystem")
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
 
 const getPageId = uri => `SitePage /${uri}`
 const getPosts = (uri, posts) => {
