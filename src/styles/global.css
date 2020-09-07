@@ -332,6 +332,10 @@ img {
   object-fit: contain;
 }
 
+.wp-block-gallery figcaption {
+  min-height: 3.7rem;
+}
+
 @media screen and (min-width: 30em) {
   .QuadradoTitulo {
     margin-top: 0rem;
