@@ -79,7 +79,7 @@ const Page = ({ pageContext, data }) => {
       {showModal ? <Modal onExit={e => setModal(false)} /> : null}
       {inHomePage ? 
       <div style={ { textAlign: "center"} }>
-        <iframe className="mw-100" width="560" height="315" src="https://www.youtube.com/embed/Z2jbkjjf9Sw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen={true}></iframe>
+        <iframe className="mw-90"width="560" height="315" src="https://www.youtube.com/embed/myhm2qkC-Tw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div> : null }
       <ImagesMenu
         allSitePage={data.allSitePage}
