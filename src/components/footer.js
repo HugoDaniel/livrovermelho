@@ -80,7 +80,7 @@ const Footer = () => {
         <h3 className="w-100 tc">
           {subscribed
             ? "Em breve entraremos em contacto consigo"
-            : "Fique a par das novidades"}
+            : "Fique a par das novidades, receba a Newsletter"}
         </h3>
         {!subscribed ? (
           <div className="flex justify-center">
