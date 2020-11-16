@@ -151,6 +151,9 @@ p {
   padding: 0;
   margin: 0;
 }
+.Galeria .blocks-gallery-grid {
+	display: grid;
+}
 
 .wp-block-gallery {
   margin: 0;
@@ -224,7 +227,6 @@ input.upload {
 
   color: #b8a89e;
   background: white;
-  width: 100%;
 }
 
 .blocks-gallery-grid {
@@ -241,6 +243,9 @@ input.upload {
 .blocks-gallery-item figure img {
   width: 100%;
   height: auto;
+}
+.Colabore .blocks-gallery-item figcaption {
+	margin-top: -8px;
 }
 .blocks-gallery-item figcaption {
   background: black;
@@ -332,12 +337,24 @@ img {
   object-fit: contain;
 }
 
+.Colabore
+.wp-block-gallery figcaption {
+  min-height: 0;
+  margin-bottom: 8px;
+}
 .wp-block-gallery figcaption {
   min-height: 3.7rem;
 }
 figure,
 .wp-block-image {
   margin: 0;
+}
+
+form input {
+	width: 180px;
+}
+form label {
+	font-size: 0.9rem;
 }
 
 @media screen and (min-width: 30em) {

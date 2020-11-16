@@ -88,7 +88,6 @@ const Footer = () => {
               className="pa1 w5 br2 mr2 ba"
               type="email"
               id="subscribe"
-              placeholder="newsletter@email.pt"
             />
             <div
               className="Button w4 br3 tc"

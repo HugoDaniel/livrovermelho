@@ -137,23 +137,25 @@ const Envio = (props) => {
         enctype="multipart/form-data"
       >
         <div className={formGroupCx}>
-          <label for="email">Email* </label>
+          <label for="email">Email do observador* </label>
           <input type="email" name="email" id="email" required />
         </div>
         <div className={formGroupCx}>
-          <label for="name">Nome* </label>
+          <label for="name">Nome do observador* </label>
           <input type="text" name="nome" id="nome" required />
         </div>
         <div className={formGroupCx}>
-          <label for="local">Data e Local* </label>
-          <input type="text" name="local" id="local" required />
-        </div>
-        <div className={formGroupCx}>
-          <label for="notas">Notas </label>
+          <label for="notas">Nome do mamífero</label>
           <input type="text" name="notas" id="notas" />
         </div>
         <div className={formGroupCx}>
+          <label for="local">Data e Local do registo* </label>
+          <input type="text" name="local" id="local" required />
+        </div>
+        <div className={`${formGroupCx} flex-column`}>
+          <p className="w-100" for="fotos">Anexo (com foto/vídeo):</p>
           <input
+            className="w-90"
             multiple
             id="fotos"
             name="fotos"

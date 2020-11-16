@@ -49,7 +49,7 @@ const Layout = ({
       />
       <div>
 
-        <main className={`${className} ${isPost ? 'isPost' : '' }`}>
+        <main className={`${className || ''} ${isPost ? 'isPost' : ''} ${siteTitle}`}>
           {children}
     { hasTable ? <Tabela className="Tabela wp-block-group pt0 dark-gray lh-copy measure-m mw8 center pa4 ph6-l" /> : null }
       <div className="social flex items-center justify-center">
