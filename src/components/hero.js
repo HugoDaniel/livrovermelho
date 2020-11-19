@@ -23,7 +23,7 @@ const Hero = ({ fluid, title }) => {
       fluid={fluid ? fluid : data.placeholderImage.childImageSharp.fluid}
       title={t}
     />
-    <p className="white bg-black f7 absolute" style={{ marginTop: "-2rem" }}>{t}</p>
+    <p className="white bg-black f7 absolute" style={{ marginTop: "-5%", maxWidth: "96px" }}>{t}</p>
     </div>
   )
 }
