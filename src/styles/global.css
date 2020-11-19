@@ -334,7 +334,7 @@ a.wp-block-button__link {
   margin-top: -3.5rem;
 }
 img {
-  object-fit: contain;
+  height: auto;
 }
 
 .Colabore
