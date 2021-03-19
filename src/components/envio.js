@@ -45,12 +45,12 @@ const uploadToDropbox2 = (rndName, file, index, onDone, onLoading) => {
       })
     )
   } catch (e) {
-    console.log("GOT ERROR", e)
+    console.error(e)
     return
   }
 
   xhr.onerror = function(err) {
-    console.log("GOT ERROR", err)
+    console.error(err)
   }
   xhr.send(file)
   if (onLoading) onLoading(true)
@@ -62,6 +62,8 @@ const sendData = (e, onLoading, onDone) => {
   const email = document.getElementById("email").value
   const notas = document.getElementById("notas").value
   const local = document.getElementById("local").value
+  const latitude = document.getElementById("latitude").value
+  const longitude = document.getElementById("longitude").value
   const fotos = document.getElementById("fotos").files
   const uniqueName = getRndStr()
   let blob = new File(
@@ -74,6 +76,10 @@ const sendData = (e, onLoading, onDone) => {
       notas,
       "\nLocal e Data: ",
       local,
+      "\nLatitude ((WGS84 graus decimais):",
+      latitude,
+      "\nLongitude ((WGS84 graus decimais):",
+      longitude,
     ],
     "conteudos.txt",
     {
@@ -151,6 +157,14 @@ const Envio = (props) => {
         <div className={formGroupCx}>
           <label for="local">Data e Local do registo* </label>
           <input type="text" name="local" id="local" required />
+        </div>
+        <div className={formGroupCx}>
+          <label for="Latitude">Latitude (WGS84 graus decimais)* </label>
+          <input type="text" name="latitude" id="latitude" required />
+        </div>
+        <div className={formGroupCx}>
+          <label for="Longitude">Longitude (WGS84 graus decimais)* </label>
+          <input type="text" name="longitude" id="longitude" required />
         </div>
         <div className={`${formGroupCx} flex-column`}>
           <p className="w-100" for="fotos">Anexo (com foto/vídeo):</p>
