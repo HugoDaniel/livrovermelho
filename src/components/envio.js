@@ -103,7 +103,7 @@ const sendData = (e, onLoading, onDone) => {
 const ThankYouEnvio = ({ onExit }) => (
   <div>
     <h2 className="w-100 tc">Obrigado</h2>
-    <p className="w-100 pa3 tc">Em breve entraremos em contacto consigo.</p>
+    <p className="w-100 pa3 tc">Agradecemos a sua participação.</p>
     <div className="w-100 flex items-center justify-center">
       <div className="Button secondary mb3" onClick={onExit}>
         ❤
