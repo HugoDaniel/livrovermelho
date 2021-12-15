@@ -135,7 +135,14 @@ const Envio = (props) => {
   }
   return (
     <div {...props}>
-      <h2 className="w-100 tc">Contribua</h2>
+      <h2 className="w-100 tc">Colaborações Terminadas</h2>
+      <p className="ph3">Esta fase do projeto terminou, de momento não estamos a aceitar novas colaborações</p>
+      <p className="ph3">Se pretender continuar a ajudar a comunidade cientifica pode utilizar uma das seguintes alternativas:</p>
+      <ul className="mb3">
+        <li className="mb3"><a href="https://www.wilder.pt/especies/">Wilder, que espécie é esta?</a></li>
+        <li className="mb3"><a href="https://www.biodiversity4all.org/observations">Biodiversity4All, observações.</a></li>
+      </ul>
+    {/*
       <form
         action="http://localhost:6666/upload"
         method="post"
@@ -191,6 +198,7 @@ const Envio = (props) => {
           </div>
         </div>
       </form>
+      */}
     </div>
   )
 }
